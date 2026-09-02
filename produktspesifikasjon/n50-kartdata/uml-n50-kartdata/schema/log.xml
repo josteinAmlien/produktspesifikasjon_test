@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><ShapeChangeResult xmlns="http://www.interactive-instruments.de/ShapeChange/Result" xmlns:r="http://www.interactive-instruments.de/ShapeChange/Result" config="/home/runner/work/produktspesifikasjon_test/produktspesifikasjon_test/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/schema/shapechange-config.xml" end="Wed Sep 02 09:19:43 UTC 2026" resultCode="0" start="Wed Sep 02 09:19:34 UTC 2026" version="4.0.0">
+  <Messages>
+    <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: START ----------"/>
+    <Info message="Validating input parameters."/>
+    <Info message="Validation of input parameters completed."/>
+    <Info message="Validating log parameters."/>
+    <Info message="Validation of log parameters completed."/>
+    <ProcessFlowInfo message="--- Validating transformer with @id 'LDPROXY_FLAT' ..."/>
+    <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.xmlschema.XmlSchema' and @inputs 'INPUT' ..."/>
+    <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.json.JsonSchemaTarget' and @inputs 'INPUT' ..."/>
+    <ProcessFlowInfo message="--- Validating target with @class 'de.interactive_instruments.shapechange.core.target.ldproxy2.Ldproxy2Target' and @inputs 'LDPROXY_FLAT' ..."/>
+    <ProcessFlowInfo message="---------- Semantic validation of ShapeChange configuration: COMPLETE ----------"/>
+    <Warning message="The type 'Medium' of property 'SOSI_Objekt_Linjer_Samferdsel.medium' was not found.">
+      <Detail message="Context: Property 'uml-n50-kartdata::N50_Kartdata_20150901::SOSI_Objekt_Linjer_Samferdsel::medium'"/>
+    </Warning>
+    <Warning message="The type 'Medium' of property 'SOSI_Objekt_PunkterOgLinjer_Høyde.medium' was not found.">
+      <Detail message="Context: Property 'uml-n50-kartdata::N50_Kartdata_20150901::SOSI_Objekt_PunkterOgLinjer_Høyde::medium'"/>
+    </Warning>
+    <ProcessFlowInfo message="Application schema found, package name: 'uml-n50-kartdata', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/1.0'"/>
+    <ProcessFlowInfo message="Now processing target 'XML Schema' for input 'INPUT'."/>
+    <Error message="The type 'Medium' of property 'SOSI_Objekt_Linjer_Samferdsel.medium' was not found.">
+      <Detail message="Context: Property 'uml-n50-kartdata::N50_Kartdata_20150901::SOSI_Objekt_Linjer_Samferdsel::medium'"/>
+    </Error>
+    <Error message="The type 'Medium' of property 'SOSI_Objekt_PunkterOgLinjer_Høyde.medium' was not found.">
+      <Detail message="Context: Property 'uml-n50-kartdata::N50_Kartdata_20150901::SOSI_Objekt_PunkterOgLinjer_Høyde::medium'"/>
+    </Error>
+    <ProcessFlowInfo message="Executed target class 'de.interactive_instruments.shapechange.core.target.xmlschema.XmlSchema' for input ID: 'INPUT'.&#10;-------------------------------------------------"/>
+    <ProcessFlowInfo message="Application schema found, package name: 'uml-n50-kartdata', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/1.0'"/>
+    <ProcessFlowInfo message="Now processing target 'JSON Schema' for input 'INPUT'."/>
+    <Warning message="JSON Schema definition for type 'Medium' could not be identified. No map entry is defined for the type, and the type was not found in the model. No type restriction is created for properties with this type as value type."/>
+    <ProcessFlowInfo message="Executed target class 'de.interactive_instruments.shapechange.core.target.json.JsonSchemaTarget' for input ID: 'INPUT'.&#10;-------------------------------------------------"/>
+    <ProcessFlowInfo message="Now processing transformation 'LDPROXY_FLAT' for input ID: 'INPUT'."/>
+    <ProcessFlowInfo message="========== processing phase =========="/>
+    <ProcessFlowInfo message="---------- now processing: rule-trf-prop-flatten-types ----------"/>
+    <ProcessFlowInfo message="========== postprocessing phase =========="/>
+    <ProcessFlowInfo message="---------- TransformationManager postprocessing: validating constraints ----------"/>
+    <ProcessFlowInfo message="Performed transformation for transformer ID 'LDPROXY_FLAT' for input ID: 'INPUT'.&#10;-------------------------------------------------"/>
+    <ProcessFlowInfo message="Application schema found, package name: 'uml-n50-kartdata', target namespace: 'https://skjema.geonorge.no/SOSI/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/1.0'"/>
+    <ProcessFlowInfo message="Now processing target 'Ldproxy (v2)' for input 'LDPROXY_FLAT'."/>
+    <Info message="The target configuration does not contain advanced process configuration infos."/>
+    <Error message="Type 'KantUtsnitt' has one or more supertypes. Conversion of inheritance relationships is only supported by this target if parameter 'enableFragments' is set to 'true'. The relationship will be ignored.">
+      <Detail message="Context: class 'uml-n50-kartdata::N50_Kartdata_20150901::KantUtsnitt'"/>
+    </Error>
+    <Warning message="Type 'SOSI_Objekt_Flater' is abstract. Conversion of abstract types is only supported by this target if parameter 'enableFragments' is set to 'true'. The type will be ignored.">
+      <Detail message="Context: class 'uml-n50-kartdata::N50_Kartdata_20150901::SOSI_Objekt_Flater'"/>
+    </Warning>
+    <Warning message="Type 'SOSI_Objekt_Hjelpelinjer' is abstract. Conversion of abstract types is only supported by this target if parameter 'enableFragments' is set to 'true'. The type will be ignored.">
+      <Detail message="Context: class 'uml-n50-kartdata::N50_Kartdata_20150901::SOSI_Objekt_Hjelpelinjer'"/>
+    </Warning>
+    <Warning message="Type 'SOSI_Objekt_Kombinasjon_Ulike_Geometrityper' is abstract. Conversion of abstract types is only supported by this target if parameter 'enableFragments' is set to 'true'. The type will be ignored.">
+      <Detail message="Context: class 'uml-n50-kartdata::N50_Kartdata_20150901::SOSI_Objekt_Kombinasjon_Ulike_Geometrityper'"/>
+    </Warning>
+    <Warning message="Type 'SOSI_Objekt_Linjer_Samferdsel' is abstract. Conversion of abstract types is only supported by this target if parameter 'enableFragments' is set to 'true'. The type will be ignored.">
+      <Detail message="Context: class 'uml-n50-kartdata::N50_Kartdata_20150901::SOSI_Objekt_Linjer_Samferdsel'"/>
+    </Warning>
+    <Warning message="Type 'SOSI_Objekt_PunkterOgLinjer' is abstract. Conversion of abstract types is only supported by this target if parameter 'enableFragments' is set to 'true'. The type will be ignored.">
+      <Detail message="Context: class 'uml-n50-kartdata::N50_Kartdata_20150901::SOSI_Objekt_PunkterOgLinjer'"/>
+    </Warning>
+    <Warning message="Type 'SOSI_Objekt_PunkterOgLinjer_Høyde' is abstract. Conversion of abstract types is only supported by this target if parameter 'enableFragments' is set to 'true'. The type will be ignored.">
+      <Detail message="Context: class 'uml-n50-kartdata::N50_Kartdata_20150901::SOSI_Objekt_PunkterOgLinjer_Høyde'"/>
+    </Warning>
+    <Warning message="Type 'SOSI_Objekt_Sperrelinjer' is abstract. Conversion of abstract types is only supported by this target if parameter 'enableFragments' is set to 'true'. The type will be ignored.">
+      <Detail message="Context: class 'uml-n50-kartdata::N50_Kartdata_20150901::SOSI_Objekt_Sperrelinjer'"/>
+    </Warning>
+    <Info message="Could not compute a label for codelist/enumeration 'Målemetode'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'uml-n50-kartdata::Målemetode'"/>
+    </Info>
+    <Info message="Could not compute a label for codelist/enumeration 'Nøyaktighet'. A label is required for the ldproxy encoding as a codelist. Check the label template in the target configuration as well as the codelist/enumeration model, to ensure that a label can be created. Using the type name as label.">
+      <Detail message="Context: property 'uml-n50-kartdata::Nøyaktighet'"/>
+    </Info>
+    <ProcessFlowInfo message="Executed target class 'de.interactive_instruments.shapechange.core.target.ldproxy2.Ldproxy2Target' for input ID: 'LDPROXY_FLAT'.&#10;-------------------------------------------------"/>
+  </Messages>
+  <Results>
+    <Result href="file:/home/runner/work/produktspesifikasjon_test/produktspesifikasjon_test/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/schema/xsd/INPUT/uml-n50-kartdata.xsd" scope="https://skjema.geonorge.no/SOSI/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/1.0" target="XML Schema">uml-n50-kartdata.xsd</Result>
+    <Result href="file:/home/runner/work/produktspesifikasjon_test/produktspesifikasjon_test/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/schema/jsonschema/INPUT/umln50kartdata/uml-n50-kartdata.json" target="JSON Schema">uml-n50-kartdata.json</Result>
+  </Results>
+</ShapeChangeResult>

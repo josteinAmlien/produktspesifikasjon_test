@@ -1,0 +1,36 @@
+---
+id: uml_n50_kartdata
+enabled: true
+providerType: FEATURE
+providerSubType: SQL
+nativeCrs:
+  code: 25833
+  forceAxisOrder: NONE
+nativeTimeZone: Europe/Oslo
+connectionInfo:
+  database: FIXME
+  host: FIXME
+  user: FIXME
+  password: FIXME-base64-encoded
+  schemas:
+  - public
+sourcePathDefaults:
+  primaryKey: objid
+  sortKey: objid
+types:
+  kantutsnitt:
+    sourcePath: /kantutsnitt
+    type: OBJECT
+    objectType: KantUtsnitt
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true

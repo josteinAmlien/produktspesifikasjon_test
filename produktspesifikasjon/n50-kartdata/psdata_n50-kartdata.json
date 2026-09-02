@@ -126,6 +126,13 @@
         "level": "dataset",
         "levelDescription": "Gjelder hele datasettet. Hvis omfang ikke er oppgitt under en overskrift, gjelder teksten for hele datasettet og alle leveranser"
       }
+    },
+    {
+      "specificationScope": {
+        "scopeIdentification": "UML N50 Kartdata",
+        "level": "dataset",
+        "levelDescription": "N50 test"
+      }
     }
   ],
   "referenceSystemSection": {
@@ -423,6 +430,63 @@
           }
         ],
         "deliveryScope": "Tjeneste"
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "GeoPackage: uml-n50-kartdata",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/josteinAmlien/produktspesifikasjon_test/main/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/uml-n50-kartdata.gpkg",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "GPKG"
+          }
+        ]
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "GML/XSD-skjema: uml-n50-kartdata",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/josteinAmlien/produktspesifikasjon_test/main/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/schema/xsd/INPUT/uml-n50-kartdata.xsd",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "XSD"
+          }
+        ]
+      }
+    },
+    {
+      "delivery": {
+        "deliveryMedium": {
+          "deliveryMediumName": "JSON Schema: uml-n50-kartdata",
+          "deliveryService": {
+            "serviceEndpoint": "https://raw.githubusercontent.com/josteinAmlien/produktspesifikasjon_test/main/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/schema/jsonschema/INPUT/umln50kartdata/uml-n50-kartdata.json",
+            "serviceProperty": {
+              "type": "Fil",
+              "value": "Nedlasting"
+            }
+          }
+        },
+        "deliveryFormat": [
+          {
+            "formatName": "JSON Schema"
+          }
+        ]
       }
     }
   ],
