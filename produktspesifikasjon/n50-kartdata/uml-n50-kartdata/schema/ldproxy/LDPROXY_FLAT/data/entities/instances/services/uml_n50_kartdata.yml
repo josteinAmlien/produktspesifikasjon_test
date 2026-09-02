@@ -1,0 +1,11 @@
+---
+id: uml_n50_kartdata
+label: FIXME
+description: FIXME
+enabled: true
+serviceType: OGC_API
+collections:
+  kantutsnitt:
+    id: kantutsnitt
+    label: kantutsnitt
+    enabled: true

@@ -75,6 +75,26 @@ Dataene egner seg blant annet for fremstilling av topografiske kart, temakart, t
 
 **Nivåbeskrivelse**: Gjelder hele datasettet. Hvis omfang ikke er oppgitt under en overskrift, gjelder teksten for hele datasettet og alle leveranser
 
+### UML N50 Kartdata
+
+**Nivå**: dataset
+
+**Nivåbeskrivelse**: N50 test
+
+## Datainnhold og struktur
+
+
+
+### Datamodell - UML N50 Kartdata
+
+
+
+<a href="uml-n50-kartdata/uml-n50-kartdata_feature_catalogue.png" title="Klikk for stor visning"><img src="uml-n50-kartdata/uml-n50-kartdata_feature_catalogue.png" alt="Datamodell UML N50 Kartdata" style="max-width: 100%; height: auto;" /></a>
+
+
+
+➡️ [Se full datamodell for omfang "UML N50 Kartdata" (diagram per pakke og objektkatalog)](uml-n50-kartdata/objektkatalog.html)
+
 ## Referansesystem
 
 | EPSG-kode | Navn på referansesystem |
@@ -138,6 +158,9 @@ Dataene egner seg blant annet for fremstilling av topografiske kart, temakart, t
 | Topografisk Norgeskart gråtone WMS | [Lenke](https://wms.geonorge.no/skwms1/wms.topograatone?service=wms&request=getcapabilities) | WMS-tjeneste | png |  |
 | Topografisk norgeskart WMTS / cache | [Lenke](https://cache.kartverket.no/v1/wmts/1.0.0/WMTSCapabilities.xml) | WMTS-tjeneste | OGC WMTS |  |
 | Bakgrunnskart for Matrikkelen WMS | [Lenke](https://wms.geonorge.no/skwms1/wms.matrikkel_bakgrunn2/?service=wms&request=getcapabilities) | WMS-tjeneste | OGC WMS |  |
+| GeoPackage: uml-n50-kartdata | [Lenke](https://raw.githubusercontent.com/josteinAmlien/produktspesifikasjon_test/main/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/uml-n50-kartdata.gpkg) | Nedlasting | GPKG |  |
+| GML/XSD-skjema: uml-n50-kartdata | [Lenke](https://raw.githubusercontent.com/josteinAmlien/produktspesifikasjon_test/main/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/schema/xsd/INPUT/uml-n50-kartdata.xsd) | Nedlasting | XSD |  |
+| JSON Schema: uml-n50-kartdata | [Lenke](https://raw.githubusercontent.com/josteinAmlien/produktspesifikasjon_test/main/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/schema/jsonschema/INPUT/umln50kartdata/uml-n50-kartdata.json) | Nedlasting | JSON Schema |  |
 
 ## Metadata
 

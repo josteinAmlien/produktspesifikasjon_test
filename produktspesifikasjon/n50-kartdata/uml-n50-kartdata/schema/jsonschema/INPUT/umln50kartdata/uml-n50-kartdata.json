@@ -1,0 +1,230 @@
+{
+  "$comment": "JSON Schema document created by ShapeChange - https://shapechange.net/",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://skjema.geonorge.no/SOSI/produktspesifikasjon/n50-kartdata/uml-n50-kartdata/umln50kartdata/uml-n50-kartdata.json",
+  "definitions": {
+    "KantUtsnitt": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/SOSI_Objekt_Hjelpelinjer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "$ref": "https://geojson.org/schema/LineString.json"
+            }
+          }
+        }
+      ]
+    },
+    "Målemetode": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Nøyaktighet": {
+      "type": "string",
+      "format": "uri"
+    },
+    "Posisjonskvalitet": {
+      "type": "object",
+      "properties": {
+        "målemetode": {
+          "$ref": "#/definitions/Målemetode"
+        },
+        "nøyaktighet": {
+          "$ref": "#/definitions/Nøyaktighet"
+        }
+      },
+      "required": [
+        "målemetode",
+        "nøyaktighet"
+      ]
+    },
+    "SOSI_Objekt_Flater": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kantUtsnitt": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "@type",
+        "oppdateringsdato"
+      ]
+    },
+    "SOSI_Objekt_Hjelpelinjer": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "@type"
+      ]
+    },
+    "SOSI_Objekt_Kombinasjon_Ulike_Geometrityper": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datafangstdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kvalitet": {
+          "$ref": "#/definitions/Posisjonskvalitet"
+        },
+        "kantUtsnitt": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "@type",
+        "oppdateringsdato"
+      ]
+    },
+    "SOSI_Objekt_Linjer_Samferdsel": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "medium": {},
+        "datafangstdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kvalitet": {
+          "$ref": "#/definitions/Posisjonskvalitet"
+        }
+      },
+      "required": [
+        "@type",
+        "datafangstdato",
+        "kvalitet",
+        "oppdateringsdato"
+      ]
+    },
+    "SOSI_Objekt_PunkterOgLinjer": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "datafangstdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kvalitet": {
+          "$ref": "#/definitions/Posisjonskvalitet"
+        }
+      },
+      "required": [
+        "@type",
+        "datafangstdato",
+        "kvalitet",
+        "oppdateringsdato"
+      ]
+    },
+    "SOSI_Objekt_PunkterOgLinjer_Høyde": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "medium": {},
+        "datafangstdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        },
+        "kvalitet": {
+          "$ref": "#/definitions/Posisjonskvalitet"
+        }
+      },
+      "required": [
+        "@type",
+        "datafangstdato",
+        "kvalitet",
+        "medium",
+        "oppdateringsdato"
+      ]
+    },
+    "SOSI_Objekt_Sperrelinjer": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "oppdateringsdato": {
+          "type": "string",
+          "format": "date"
+        }
+      },
+      "required": [
+        "@type",
+        "oppdateringsdato"
+      ]
+    }
+  }
+}

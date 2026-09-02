@@ -1,0 +1,39 @@
+# Open Data Contract Standard (ODCS) v3.1.0 — generert fra datamodellen.
+apiVersion: v3.1.0
+kind: DataContract
+id: urn:odcs:n50-kartdata-uml-n50-kartdata:1.0.0
+version: 1.0.0
+status: active
+name: N50 Kartdata - UML N50 Kartdata
+schema:
+- name: KantUtsnitt
+  physicalName: kantutsnitt
+  logicalType: object
+  physicalType: table
+  description: avgrensning av et utsnitt
+  customProperties:
+  - property: sosiObjektType
+    value: KantUtsnitt
+  - property: inheritsFrom
+    value: SOSI_Objekt_Hjelpelinjer
+  properties:
+  - name: oppdateringsdato
+    logicalType: timestamp
+    description: 'dato for siste endring på objektetdataene
+
+
+      Merknad:
+
+      Oppdateringsdato kan være forskjellig fra Datafangsdato ved at data som er registrert
+      kan bufres en kortere eller lengre periode før disse legges inn i datasystemet
+      (databasen).
+
+
+      -Definition-
+
+      Date and time at which this version of the spatial object was inserted or changed
+      in the spatial data set.'
+  - name: grense
+    logicalType: string
+    description: forløp som følger overgang mellom ulike fenomener
+    required: true
