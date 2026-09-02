@@ -5,7 +5,391 @@ description: FIXME
 enabled: true
 serviceType: OGC_API
 collections:
+  allmenning:
+    id: allmenning
+    label: allmenning
+    enabled: true
+  allmenninggrense:
+    id: allmenninggrense
+    label: allmenninggrense
+    enabled: true
+  alpinbakke:
+    id: alpinbakke
+    label: alpinbakke
+    enabled: true
+  arealbrukgrense:
+    id: arealbrukgrense
+    label: arealbrukgrense
+    enabled: true
+  avtaltavgrensningslinje:
+    id: avtaltavgrensningslinje
+    label: avtaltavgrensningslinje
+    enabled: true
+  bane:
+    id: bane
+    label: bane
+    enabled: true
+  bygning:
+    id: bygning
+    label: bygning
+    enabled: true
+  bymessigbebyggelse:
+    id: bymessigbebyggelse
+    label: bymessigbebyggelse
+    enabled: true
+  campingplass:
+    id: campingplass
+    label: campingplass
+    enabled: true
+  dam:
+    id: dam
+    label: dam
+    enabled: true
+  dataavgrensning:
+    id: dataavgrensning
+    label: dataavgrensning
+    enabled: true
+  dyrketmark:
+    id: dyrketmark
+    label: dyrketmark
+    enabled: true
+  elv:
+    id: elv
+    label: elv
+    enabled: true
+  elvbekk:
+    id: elvbekk
+    label: elvbekk
+    enabled: true
+  elvekant:
+    id: elvekant
+    label: elvekant
+    enabled: true
+  elvelinjefiktiv:
+    id: elvelinjefiktiv
+    label: elvelinjefiktiv
+    enabled: true
+  elvmidtlinje:
+    id: elvmidtlinje
+    label: elvmidtlinje
+    enabled: true
+  ferskvanntørrfall:
+    id: ferskvanntørrfall
+    label: ferskvanntørrfall
+    enabled: true
+  ferskvanntørrfallkant:
+    id: ferskvanntørrfallkant
+    label: ferskvanntørrfallkant
+    enabled: true
+  fiktivdelelinje:
+    id: fiktivdelelinje
+    label: fiktivdelelinje
+    enabled: true
+  flomløpkant:
+    id: flomløpkant
+    label: flomløpkant
+    enabled: true
+  flytebrygge:
+    id: flytebrygge
+    label: flytebrygge
+    enabled: true
+  forsenkningskurve:
+    id: forsenkningskurve
+    label: forsenkningskurve
+    enabled: true
+  foss:
+    id: foss
+    label: foss
+    enabled: true
+  fylkesgrense:
+    id: fylkesgrense
+    label: fylkesgrense
+    enabled: true
+  golfbane:
+    id: golfbane
+    label: golfbane
+    enabled: true
+  gravplass:
+    id: gravplass
+    label: gravplass
+    enabled: true
+  grunnlinje:
+    id: grunnlinje
+    label: grunnlinje
+    enabled: true
+  grunnlinjepunkt:
+    id: grunnlinjepunkt
+    label: grunnlinjepunkt
+    enabled: true
+  gruve:
+    id: gruve
+    label: gruve
+    enabled: true
+  havelvsperre:
+    id: havelvsperre
+    label: havelvsperre
+    enabled: true
+  havflate:
+    id: havflate
+    label: havflate
+    enabled: true
+  havinnsjøsperre:
+    id: havinnsjøsperre
+    label: havinnsjøsperre
+    enabled: true
+  hjelpekurve:
+    id: hjelpekurve
+    label: hjelpekurve
+    enabled: true
+  hoppbakke:
+    id: hoppbakke
+    label: hoppbakke
+    enabled: true
+  høydekurve:
+    id: høydekurve
+    label: høydekurve
+    enabled: true
+  industriområde:
+    id: industriområde
+    label: industriområde
+    enabled: true
+  innsjø:
+    id: innsjø
+    label: innsjø
+    enabled: true
+  innsjøelvsperre:
+    id: innsjøelvsperre
+    label: innsjøelvsperre
+    enabled: true
+  innsjøinnsjøsperre:
+    id: innsjøinnsjøsperre
+    label: innsjøinnsjøsperre
+    enabled: true
+  innsjøkant:
+    id: innsjøkant
+    label: innsjøkant
+    enabled: true
+  innsjøkantregulert:
+    id: innsjøkantregulert
+    label: innsjøkantregulert
+    enabled: true
+  innsjømidtlinje:
+    id: innsjømidtlinje
+    label: innsjømidtlinje
+    enabled: true
+  innsjøregulert:
+    id: innsjøregulert
+    label: innsjøregulert
+    enabled: true
+  kaibrygge:
+    id: kaibrygge
+    label: kaibrygge
+    enabled: true
+  kanalgrøft:
+    id: kanalgrøft
+    label: kanalgrøft
+    enabled: true
   kantutsnitt:
     id: kantutsnitt
     label: kantutsnitt
+    enabled: true
+  kommune:
+    id: kommune
+    label: kommune
+    enabled: true
+  kommunegrense:
+    id: kommunegrense
+    label: kommunegrense
+    enabled: true
+  kystkontur:
+    id: kystkontur
+    label: kystkontur
+    enabled: true
+  ledning:
+    id: ledning
+    label: ledning
+    enabled: true
+  lufthavn:
+    id: lufthavn
+    label: lufthavn
+    enabled: true
+  luftledninglh:
+    id: luftledninglh
+    label: luftledninglh
+    enabled: true
+  lysløype:
+    id: lysløype
+    label: lysløype
+    enabled: true
+  masttele:
+    id: masttele
+    label: masttele
+    enabled: true
+  molo:
+    id: molo
+    label: molo
+    enabled: true
+  myr:
+    id: myr
+    label: myr
+    enabled: true
+  naturverngrense:
+    id: naturverngrense
+    label: naturverngrense
+    enabled: true
+  naturvernområde:
+    id: naturvernområde
+    label: naturvernområde
+    enabled: true
+  naturvernpunkt:
+    id: naturvernpunkt
+    label: naturvernpunkt
+    enabled: true
+  navigasjonsinstallasjon:
+    id: navigasjonsinstallasjon
+    label: navigasjonsinstallasjon
+    enabled: true
+  park:
+    id: park
+    label: park
+    enabled: true
+  parkeringsområde:
+    id: parkeringsområde
+    label: parkeringsområde
+    enabled: true
+  pir:
+    id: pir
+    label: pir
+    enabled: true
+  presentasjontekst:
+    id: presentasjontekst
+    label: presentasjontekst
+    enabled: true
+  reingjerde:
+    id: reingjerde
+    label: reingjerde
+    enabled: true
+  riksgrense:
+    id: riksgrense
+    label: riksgrense
+    enabled: true
+  rullebane:
+    id: rullebane
+    label: rullebane
+    enabled: true
+  rørgate:
+    id: rørgate
+    label: rørgate
+    enabled: true
+  skitrekk:
+    id: skitrekk
+    label: skitrekk
+    enabled: true
+  skjær:
+    id: skjær
+    label: skjær
+    enabled: true
+  skog:
+    id: skog
+    label: skog
+    enabled: true
+  skytebaneinnretning:
+    id: skytebaneinnretning
+    label: skytebaneinnretning
+    enabled: true
+  skytefelt:
+    id: skytefelt
+    label: skytefelt
+    enabled: true
+  skytefeltgrense:
+    id: skytefeltgrense
+    label: skytefeltgrense
+    enabled: true
+  snøisbre:
+    id: snøisbre
+    label: snøisbre
+    enabled: true
+  spesielldetalj:
+    id: spesielldetalj
+    label: spesielldetalj
+    enabled: true
+  sportidrettplass:
+    id: sportidrettplass
+    label: sportidrettplass
+    enabled: true
+  stasjon:
+    id: stasjon
+    label: stasjon
+    enabled: true
+  stedsnavntekst:
+    id: stedsnavntekst
+    label: stedsnavntekst
+    enabled: true
+  steinbrudd:
+    id: steinbrudd
+    label: steinbrudd
+    enabled: true
+  steintipp:
+    id: steintipp
+    label: steintipp
+    enabled: true
+  takkant:
+    id: takkant
+    label: takkant
+    enabled: true
+  tank:
+    id: tank
+    label: tank
+    enabled: true
+  tankkant:
+    id: tankkant
+    label: tankkant
+    enabled: true
+  taubane:
+    id: taubane
+    label: taubane
+    enabled: true
+  teiggrensepunkt:
+    id: teiggrensepunkt
+    label: teiggrensepunkt
+    enabled: true
+  terrengpunkt:
+    id: terrengpunkt
+    label: terrengpunkt
+    enabled: true
+  territorialgrense:
+    id: territorialgrense
+    label: territorialgrense
+    enabled: true
+  tettbebyggelse:
+    id: tettbebyggelse
+    label: tettbebyggelse
+    enabled: true
+  tregruppe:
+    id: tregruppe
+    label: tregruppe
+    enabled: true
+  trigonometriskpunkt:
+    id: trigonometriskpunkt
+    label: trigonometriskpunkt
+    enabled: true
+  tårn:
+    id: tårn
+    label: tårn
+    enabled: true
+  veglenke:
+    id: veglenke
+    label: veglenke
+    enabled: true
+  vegsperring:
+    id: vegsperring
+    label: vegsperring
+    enabled: true
+  vindkraftverk:
+    id: vindkraftverk
+    label: vindkraftverk
+    enabled: true
+  åpentområde:
+    id: åpentområde
+    label: åpentområde
     enabled: true

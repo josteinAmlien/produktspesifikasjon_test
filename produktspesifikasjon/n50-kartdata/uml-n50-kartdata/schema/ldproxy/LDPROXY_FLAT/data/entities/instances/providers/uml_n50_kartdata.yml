@@ -18,6 +18,2038 @@ sourcePathDefaults:
   primaryKey: objid
   sortKey: objid
 types:
+  allmenning:
+    sourcePath: /allmenning
+    type: OBJECT
+    objectType: Allmenning
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      allmenningtype:
+        sourcePath: allmenningtype
+        type: STRING
+        constraints:
+          codelist: Allmenningtype
+          required: true
+      navn:
+        sourcePath: navn
+        type: STRING
+        constraints:
+          required: true
+      avgrensesAvAllmenninggrense:
+        sourcePath: "[objid=allmenningobjid]Allmenning_avgrensesAvAllmenninggrense/[allmenninggrenseobjid=objid]allmenninggrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Allmenninggrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Allmenninggrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/allmenninggrense/items/{{value}}"
+  allmenninggrense:
+    sourcePath: /allmenninggrense
+    type: OBJECT
+    objectType: Allmenninggrense
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  alpinbakke:
+    sourcePath: /alpinbakke
+    type: OBJECT
+    objectType: Alpinbakke
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=alpinbakkeobjid]Alpinbakke_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=alpinbakkeobjid]Alpinbakke_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=alpinbakkeobjid]Alpinbakke_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=alpinbakkeobjid]Alpinbakke_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=alpinbakkeobjid]Alpinbakke_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=alpinbakkeobjid]Alpinbakke_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=alpinbakkeobjid]Alpinbakke_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+  arealbrukgrense:
+    sourcePath: /arealbrukgrense
+    type: OBJECT
+    objectType: Arealbrukgrense
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  avtaltavgrensningslinje:
+    sourcePath: /avtaltavgrensningslinje
+    type: OBJECT
+    objectType: AvtaltAvgrensningslinje
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  bane:
+    sourcePath: /bane
+    type: OBJECT
+    objectType: Bane
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+      jernbaneinformasjon_anleggstype:
+        sourcePath: jernbaneinformasjon_anleggstype
+        type: STRING
+        constraints:
+          codelist: Jernbanetype
+      jernbaneinformasjon_banestatus:
+        sourcePath: jernbaneinformasjon_banestatus
+        type: STRING
+        constraints:
+          codelist: Jernbanestatus
+      sporantall:
+        sourcePath: sporantall
+        type: STRING
+        constraints:
+          codelist: Sporantall
+          required: true
+  bygning:
+    sourcePath: /bygning
+    type: OBJECT
+    objectType: Bygning
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        geometryType: POLYGON
+      bygningstype:
+        sourcePath: bygningstype
+        type: STRING
+        constraints:
+          codelist: BygningstypeKode
+          required: true
+      hytteinformasjon_betjeningsgrad:
+        sourcePath: hytteinformasjon_betjeningsgrad
+        type: STRING
+        constraints:
+          codelist: Betjeningsgrad
+      hytteinformasjon_hytteeier:
+        sourcePath: hytteinformasjon_hytteeier
+        type: STRING
+        constraints:
+          codelist: Hytteeier
+      hytteinformasjon_tilgjengelighet:
+        sourcePath: hytteinformasjon_tilgjengelighet
+        type: STRING
+        constraints:
+          codelist: Tilgjengelighet
+      navn:
+        sourcePath: navn
+        type: STRING
+      avgrensesAvTakkant:
+        sourcePath: "[objid=bygningobjid]Bygning_avgrensesAvTakkant/[takkantobjid=objid]takkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Takkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Takkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/takkant/items/{{value}}"
+  bymessigbebyggelse:
+    sourcePath: /bymessigbebyggelse
+    type: OBJECT
+    objectType: BymessigBebyggelse
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=bymessigbebyggelseobjid]BymessigBebyggelse_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=bymessigbebyggelseobjid]BymessigBebyggelse_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=bymessigbebyggelseobjid]BymessigBebyggelse_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=bymessigbebyggelseobjid]BymessigBebyggelse_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=bymessigbebyggelseobjid]BymessigBebyggelse_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=bymessigbebyggelseobjid]BymessigBebyggelse_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=bymessigbebyggelseobjid]BymessigBebyggelse_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+  campingplass:
+    sourcePath: /campingplass
+    type: OBJECT
+    objectType: Campingplass
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+  dam:
+    sourcePath: /dam
+    type: OBJECT
+    objectType: Dam
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  dataavgrensning:
+    sourcePath: /dataavgrensning
+    type: OBJECT
+    objectType: Dataavgrensning
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  dyrketmark:
+    sourcePath: /dyrketmark
+    type: OBJECT
+    objectType: DyrketMark
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=dyrketmarkobjid]DyrketMark_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=dyrketmarkobjid]DyrketMark_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=dyrketmarkobjid]DyrketMark_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=dyrketmarkobjid]DyrketMark_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=dyrketmarkobjid]DyrketMark_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=dyrketmarkobjid]DyrketMark_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=dyrketmarkobjid]DyrketMark_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+  elv:
+    sourcePath: /elv
+    type: OBJECT
+    objectType: Elv
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=elvobjid]Elv_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=elvobjid]Elv_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=elvobjid]Elv_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvFerskvanntørrfallkant:
+        sourcePath: "[objid=elvobjid]Elv_avgrensesAvFerskvanntørrfallkant/[ferskvanntørrfallkantobjid=objid]ferskvanntørrfallkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FerskvannTørrfallkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FerskvannTørrfallkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/ferskvanntørrfallkant/items/{{value}}"
+      avgrensesAvHavElvSperre:
+        sourcePath: "[objid=elvobjid]Elv_avgrensesAvHavElvSperre/[havelvsperreobjid=objid]havelvsperre"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: HavElvSperre-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: HavElvSperre-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/havelvsperre/items/{{value}}"
+      avgrensesAvInnsjøElvSperre:
+        sourcePath: "[objid=elvobjid]Elv_avgrensesAvInnsjøElvSperre/[innsjøelvsperreobjid=objid]innsjøelvsperre"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøElvSperre-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøElvSperre-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøelvsperre/items/{{value}}"
+  elvbekk:
+    sourcePath: /elvbekk
+    type: OBJECT
+    objectType: ElvBekk
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+      vannbredde:
+        sourcePath: vannbredde
+        type: STRING
+        constraints:
+          codelist: VannBredde
+          required: true
+  elvekant:
+    sourcePath: /elvekant
+    type: OBJECT
+    objectType: ElveKant
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  elvelinjefiktiv:
+    sourcePath: /elvelinjefiktiv
+    type: OBJECT
+    objectType: ElvelinjeFiktiv
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  elvmidtlinje:
+    sourcePath: /elvmidtlinje
+    type: OBJECT
+    objectType: ElvMidtlinje
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  ferskvanntørrfall:
+    sourcePath: /ferskvanntørrfall
+    type: OBJECT
+    objectType: FerskvannTørrfall
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvElveKant:
+        sourcePath: "[objid=ferskvanntørrfallobjid]FerskvannTørrfall_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvFerskvanntørrfallkant:
+        sourcePath: "[objid=ferskvanntørrfallobjid]FerskvannTørrfall_avgrensesAvFerskvanntørrfallkant/[ferskvanntørrfallkantobjid=objid]ferskvanntørrfallkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FerskvannTørrfallkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FerskvannTørrfallkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/ferskvanntørrfallkant/items/{{value}}"
+  ferskvanntørrfallkant:
+    sourcePath: /ferskvanntørrfallkant
+    type: OBJECT
+    objectType: FerskvannTørrfallkant
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  fiktivdelelinje:
+    sourcePath: /fiktivdelelinje
+    type: OBJECT
+    objectType: FiktivDelelinje
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  flomløpkant:
+    sourcePath: /flomløpkant
+    type: OBJECT
+    objectType: Flomløpkant
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  flytebrygge:
+    sourcePath: /flytebrygge
+    type: OBJECT
+    objectType: Flytebrygge
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  forsenkningskurve:
+    sourcePath: /forsenkningskurve
+    type: OBJECT
+    objectType: Forsenkningskurve
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+      høyde:
+        sourcePath: høyde
+        type: INTEGER
+        constraints:
+          required: true
+  foss:
+    sourcePath: /foss
+    type: OBJECT
+    objectType: Foss
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      retning_retningsverdi:
+        sourcePath: retning_retningsverdi
+        type: FLOAT
+        constraints:
+          required: true
+      retning_retningsenhet:
+        sourcePath: retning_retningsenhet
+        type: STRING
+        constraints:
+          codelist: Retningsenhet
+          required: true
+      retning_retningsreferanse:
+        sourcePath: retning_retningsreferanse
+        type: STRING
+        constraints:
+          codelist: Retningsreferanse
+          required: true
+  fylkesgrense:
+    sourcePath: /fylkesgrense
+    type: OBJECT
+    objectType: Fylkesgrense
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  golfbane:
+    sourcePath: /golfbane
+    type: OBJECT
+    objectType: Golfbane
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=golfbaneobjid]Golfbane_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=golfbaneobjid]Golfbane_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=golfbaneobjid]Golfbane_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=golfbaneobjid]Golfbane_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=golfbaneobjid]Golfbane_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=golfbaneobjid]Golfbane_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=golfbaneobjid]Golfbane_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+  gravplass:
+    sourcePath: /gravplass
+    type: OBJECT
+    objectType: Gravplass
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=gravplassobjid]Gravplass_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=gravplassobjid]Gravplass_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=gravplassobjid]Gravplass_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvInnsjøkantregulert:
+        sourcePath: "[objid=gravplassobjid]Gravplass_avgrensesAvInnsjøkantregulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=gravplassobjid]Gravplass_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=gravplassobjid]Gravplass_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=gravplassobjid]Gravplass_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+  grunnlinje:
+    sourcePath: /grunnlinje
+    type: OBJECT
+    objectType: Grunnlinje
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  grunnlinjepunkt:
+    sourcePath: /grunnlinjepunkt
+    type: OBJECT
+    objectType: Grunnlinjepunkt
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      grunnlinjepunktnavn:
+        sourcePath: grunnlinjepunktnavn
+        type: STRING
+      grunnlinjepunktnummer:
+        sourcePath: grunnlinjepunktnummer
+        type: STRING
+        constraints:
+          required: true
+  gruve:
+    sourcePath: /gruve
+    type: OBJECT
+    objectType: Gruve
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+  havelvsperre:
+    sourcePath: /havelvsperre
+    type: OBJECT
+    objectType: HavElvSperre
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  havflate:
+    sourcePath: /havflate
+    type: OBJECT
+    objectType: Havflate
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=havflateobjid]Havflate_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=havflateobjid]Havflate_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=havflateobjid]Havflate_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvHavInnsjøSperre:
+        sourcePath: "[objid=havflateobjid]Havflate_avgrensesAvHavInnsjøSperre/[havinnsjøsperreobjid=objid]havinnsjøsperre"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: HavInnsjøSperre-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: HavInnsjøSperre-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/havinnsjøsperre/items/{{value}}"
+      avgrensesAvHavElvSperre:
+        sourcePath: "[objid=havflateobjid]Havflate_avgrensesAvHavElvSperre/[havelvsperreobjid=objid]havelvsperre"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: HavElvSperre-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: HavElvSperre-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/havelvsperre/items/{{value}}"
+  havinnsjøsperre:
+    sourcePath: /havinnsjøsperre
+    type: OBJECT
+    objectType: HavInnsjøSperre
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  hjelpekurve:
+    sourcePath: /hjelpekurve
+    type: OBJECT
+    objectType: Hjelpekurve
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+      høyde:
+        sourcePath: høyde
+        type: INTEGER
+        constraints:
+          required: true
+  hoppbakke:
+    sourcePath: /hoppbakke
+    type: OBJECT
+    objectType: Hoppbakke
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      lengde:
+        sourcePath: lengde
+        type: INTEGER
+        constraints:
+          required: true
+      retning_retningsverdi:
+        sourcePath: retning_retningsverdi
+        type: FLOAT
+        constraints:
+          required: true
+      retning_retningsenhet:
+        sourcePath: retning_retningsenhet
+        type: STRING
+        constraints:
+          codelist: Retningsenhet
+          required: true
+      retning_retningsreferanse:
+        sourcePath: retning_retningsreferanse
+        type: STRING
+        constraints:
+          codelist: Retningsreferanse
+          required: true
+  høydekurve:
+    sourcePath: /høydekurve
+    type: OBJECT
+    objectType: Høydekurve
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+      høyde:
+        sourcePath: høyde
+        type: INTEGER
+        constraints:
+          required: true
+  industriområde:
+    sourcePath: /industriområde
+    type: OBJECT
+    objectType: Industriområde
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=industriområdeobjid]Industriområde_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=industriområdeobjid]Industriområde_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=industriområdeobjid]Industriområde_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=industriområdeobjid]Industriområde_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=industriområdeobjid]Industriområde_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=industriområdeobjid]Industriområde_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=industriområdeobjid]Industriområde_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+  innsjø:
+    sourcePath: /innsjø
+    type: OBJECT
+    objectType: Innsjø
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      vatnLøpenummer:
+        sourcePath: vatnløpenummer
+        type: INTEGER
+      høyde:
+        sourcePath: høyde
+        type: INTEGER
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=innsjøobjid]Innsjø_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=innsjøobjid]Innsjø_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvInnsjøinnsjøsperre:
+        sourcePath: "[objid=innsjøobjid]Innsjø_avgrensesAvInnsjøinnsjøsperre/[innsjøinnsjøsperreobjid=objid]innsjøinnsjøsperre"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøInnsjøSperre-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøInnsjøSperre-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøinnsjøsperre/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=innsjøobjid]Innsjø_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvHavInnsjøSperre:
+        sourcePath: "[objid=innsjøobjid]Innsjø_avgrensesAvHavInnsjøSperre/[havinnsjøsperreobjid=objid]havinnsjøsperre"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: HavInnsjøSperre-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: HavInnsjøSperre-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/havinnsjøsperre/items/{{value}}"
+      avgrensesAvInnsjøElvSperre:
+        sourcePath: "[objid=innsjøobjid]Innsjø_avgrensesAvInnsjøElvSperre/[innsjøelvsperreobjid=objid]innsjøelvsperre"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøElvSperre-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøElvSperre-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøelvsperre/items/{{value}}"
+  innsjøelvsperre:
+    sourcePath: /innsjøelvsperre
+    type: OBJECT
+    objectType: InnsjøElvSperre
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  innsjøinnsjøsperre:
+    sourcePath: /innsjøinnsjøsperre
+    type: OBJECT
+    objectType: InnsjøInnsjøSperre
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  innsjøkant:
+    sourcePath: /innsjøkant
+    type: OBJECT
+    objectType: Innsjøkant
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  innsjøkantregulert:
+    sourcePath: /innsjøkantregulert
+    type: OBJECT
+    objectType: InnsjøkantRegulert
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  innsjømidtlinje:
+    sourcePath: /innsjømidtlinje
+    type: OBJECT
+    objectType: InnsjøMidtlinje
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  innsjøregulert:
+    sourcePath: /innsjøregulert
+    type: OBJECT
+    objectType: InnsjøRegulert
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+      vatnLøpenummer:
+        sourcePath: vatnløpenummer
+        type: INTEGER
+      lavesteRegulerteVannstand:
+        sourcePath: lavesteregulertevannstand
+        type: INTEGER
+      høyde:
+        sourcePath: høyde
+        type: INTEGER
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=innsjøregulertobjid]InnsjøRegulert_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=innsjøregulertobjid]InnsjøRegulert_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvInnsjøinnsjøsperre:
+        sourcePath: "[objid=innsjøregulertobjid]InnsjøRegulert_avgrensesAvInnsjøinnsjøsperre/[innsjøinnsjøsperreobjid=objid]innsjøinnsjøsperre"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøInnsjøSperre-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøInnsjøSperre-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøinnsjøsperre/items/{{value}}"
+      avgrensesAvInnsjøElvSperre:
+        sourcePath: "[objid=innsjøregulertobjid]InnsjøRegulert_avgrensesAvInnsjøElvSperre/[innsjøelvsperreobjid=objid]innsjøelvsperre"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøElvSperre-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøElvSperre-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøelvsperre/items/{{value}}"
+      avgrensesAvInnsjøkantregulert:
+        sourcePath: "[objid=innsjøregulertobjid]InnsjøRegulert_avgrensesAvInnsjøkantregulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+  kaibrygge:
+    sourcePath: /kaibrygge
+    type: OBJECT
+    objectType: KaiBrygge
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  kanalgrøft:
+    sourcePath: /kanalgrøft
+    type: OBJECT
+    objectType: KanalGrøft
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+      vannBredde:
+        sourcePath: vannbredde
+        type: STRING
+        constraints:
+          codelist: VannBredde
+          required: true
   kantutsnitt:
     sourcePath: /kantutsnitt
     type: OBJECT
@@ -34,3 +2066,2484 @@ types:
         geometryType: LINE_STRING
         constraints:
           required: true
+  kommune:
+    sourcePath: /kommune
+    type: OBJECT
+    objectType: Kommune
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      kommunenavn:
+        sourcePath: kommunenavn
+        type: STRING
+        constraints:
+          required: true
+      kommunenummer:
+        sourcePath: kommunenummer
+        type: STRING
+        constraints:
+          codelist: Kommunenummer
+          required: true
+      fylkesnummer:
+        sourcePath: fylkesnummer
+        type: STRING
+        constraints:
+          required: true
+      fylkesnavn:
+        sourcePath: fylkesnavn
+        type: STRING
+        constraints:
+          required: true
+      avgrensesAvAvtaltAvgrensningslinje:
+        sourcePath: "[objid=kommuneobjid]Kommune_avgrensesAvAvtaltAvgrensningslinje/[avtaltavgrensningslinjeobjid=objid]avtaltavgrensningslinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: AvtaltAvgrensningslinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: AvtaltAvgrensningslinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/avtaltavgrensningslinje/items/{{value}}"
+      avgrensesAvFylkesgrense:
+        sourcePath: "[objid=kommuneobjid]Kommune_avgrensesAvFylkesgrense/[fylkesgrenseobjid=objid]fylkesgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Fylkesgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Fylkesgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fylkesgrense/items/{{value}}"
+      avgrensesAvRiksgrense:
+        sourcePath: "[objid=kommuneobjid]Kommune_avgrensesAvRiksgrense/[riksgrenseobjid=objid]riksgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Riksgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Riksgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/riksgrense/items/{{value}}"
+      avgrensesAvTerritorialgrense:
+        sourcePath: "[objid=kommuneobjid]Kommune_avgrensesAvTerritorialgrense/[territorialgrenseobjid=objid]territorialgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Territorialgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Territorialgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/territorialgrense/items/{{value}}"
+      avgrensesAvKommunegrense:
+        sourcePath: "[objid=kommuneobjid]Kommune_avgrensesAvKommunegrense/[kommunegrenseobjid=objid]kommunegrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kommunegrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kommunegrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kommunegrense/items/{{value}}"
+  kommunegrense:
+    sourcePath: /kommunegrense
+    type: OBJECT
+    objectType: Kommunegrense
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  kystkontur:
+    sourcePath: /kystkontur
+    type: OBJECT
+    objectType: Kystkontur
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  ledning:
+    sourcePath: /ledning
+    type: OBJECT
+    objectType: Ledning
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  lufthavn:
+    sourcePath: /lufthavn
+    type: OBJECT
+    objectType: Lufthavn
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        geometryType: POINT
+      lufthavntype:
+        sourcePath: lufthavntype
+        type: STRING
+        constraints:
+          codelist: Lufthavntype
+      trafikktype:
+        sourcePath: trafikktype
+        type: STRING
+        constraints:
+          codelist: Trafikktype
+      iataKode:
+        sourcePath: iatakode
+        type: STRING
+        constraints:
+          codelist: IATAKode
+      icaoKode:
+        sourcePath: icaokode
+        type: STRING
+        constraints:
+          codelist: ICAOKode
+      lufthavneier:
+        sourcePath: lufthavneier
+        type: STRING
+      navn:
+        sourcePath: navn
+        type: STRING
+      retning_retningsverdi:
+        sourcePath: retning_retningsverdi
+        type: FLOAT
+      retning_retningsenhet:
+        sourcePath: retning_retningsenhet
+        type: STRING
+        constraints:
+          codelist: Retningsenhet
+      retning_retningsreferanse:
+        sourcePath: retning_retningsreferanse
+        type: STRING
+        constraints:
+          codelist: Retningsreferanse
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=lufthavnobjid]Lufthavn_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=lufthavnobjid]Lufthavn_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=lufthavnobjid]Lufthavn_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=lufthavnobjid]Lufthavn_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=lufthavnobjid]Lufthavn_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=lufthavnobjid]Lufthavn_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=lufthavnobjid]Lufthavn_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+  luftledninglh:
+    sourcePath: /luftledninglh
+    type: OBJECT
+    objectType: LuftledningLH
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+      flerLinjer:
+        sourcePath: flerlinjer
+        type: STRING
+        constraints:
+          codelist: FlerLinjer
+          required: true
+  lysløype:
+    sourcePath: /lysløype
+    type: OBJECT
+    objectType: Lysløype
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  masttele:
+    sourcePath: /masttele
+    type: OBJECT
+    objectType: MastTele
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+  molo:
+    sourcePath: /molo
+    type: OBJECT
+    objectType: Molo
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  myr:
+    sourcePath: /myr
+    type: OBJECT
+    objectType: Myr
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=myrobjid]Myr_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=myrobjid]Myr_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=myrobjid]Myr_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=myrobjid]Myr_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=myrobjid]Myr_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=myrobjid]Myr_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=myrobjid]Myr_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+  naturverngrense:
+    sourcePath: /naturverngrense
+    type: OBJECT
+    objectType: Naturverngrense
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  naturvernområde:
+    sourcePath: /naturvernområde
+    type: OBJECT
+    objectType: Naturvernområde
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      vernedato:
+        sourcePath: vernedato
+        type: DATE
+        role: PRIMARY_INSTANT
+        constraints:
+          required: true
+      verneform:
+        sourcePath: verneform
+        type: STRING
+        constraints:
+          codelist: Verneform
+          required: true
+      navn:
+        sourcePath: navn
+        type: STRING
+        constraints:
+          required: true
+      avgrensesAvNaturverngrense:
+        sourcePath: "[objid=naturvernområdeobjid]Naturvernområde_avgrensesAvNaturverngrense/[naturverngrenseobjid=objid]naturverngrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Naturverngrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Naturverngrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/naturverngrense/items/{{value}}"
+  naturvernpunkt:
+    sourcePath: /naturvernpunkt
+    type: OBJECT
+    objectType: Naturvernpunkt
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      vernedato:
+        sourcePath: vernedato
+        type: DATE
+        role: PRIMARY_INSTANT
+        constraints:
+          required: true
+      verneform:
+        sourcePath: verneform
+        type: STRING
+        constraints:
+          codelist: Verneform
+          required: true
+      navn:
+        sourcePath: navn
+        type: STRING
+        constraints:
+          required: true
+  navigasjonsinstallasjon:
+    sourcePath: /navigasjonsinstallasjon
+    type: OBJECT
+    objectType: Navigasjonsinstallasjon
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+  park:
+    sourcePath: /park
+    type: OBJECT
+    objectType: Park
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=parkobjid]Park_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=parkobjid]Park_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=parkobjid]Park_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=parkobjid]Park_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=parkobjid]Park_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=parkobjid]Park_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=parkobjid]Park_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+  parkeringsområde:
+    sourcePath: /parkeringsområde
+    type: OBJECT
+    objectType: Parkeringsområde
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+  pir:
+    sourcePath: /pir
+    type: OBJECT
+    objectType: Pir
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  presentasjontekst:
+    sourcePath: /presentasjontekst
+    type: OBJECT
+    objectType: PresentasjonTekst
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      teksttype:
+        sourcePath: teksttype
+        type: STRING
+        constraints:
+          codelist: Teksttype
+          required: true
+  reingjerde:
+    sourcePath: /reingjerde
+    type: OBJECT
+    objectType: Reingjerde
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  riksgrense:
+    sourcePath: /riksgrense
+    type: OBJECT
+    objectType: Riksgrense
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  rullebane:
+    sourcePath: /rullebane
+    type: OBJECT
+    objectType: Rullebane
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=rullebaneobjid]Rullebane_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=rullebaneobjid]Rullebane_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=rullebaneobjid]Rullebane_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=rullebaneobjid]Rullebane_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=rullebaneobjid]Rullebane_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=rullebaneobjid]Rullebane_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=rullebaneobjid]Rullebane_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+  rørgate:
+    sourcePath: /rørgate
+    type: OBJECT
+    objectType: Rørgate
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  skitrekk:
+    sourcePath: /skitrekk
+    type: OBJECT
+    objectType: Skitrekk
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+  skjær:
+    sourcePath: /skjær
+    type: OBJECT
+    objectType: Skjær
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+  skog:
+    sourcePath: /skog
+    type: OBJECT
+    objectType: Skog
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=skogobjid]Skog_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=skogobjid]Skog_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=skogobjid]Skog_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=skogobjid]Skog_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=skogobjid]Skog_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=skogobjid]Skog_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=skogobjid]Skog_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+  skytebaneinnretning:
+    sourcePath: /skytebaneinnretning
+    type: OBJECT
+    objectType: Skytebaneinnretning
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  skytefelt:
+    sourcePath: /skytefelt
+    type: OBJECT
+    objectType: Skytefelt
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      navn:
+        sourcePath: navn
+        type: STRING
+        constraints:
+          required: true
+      skytefeltstatus:
+        sourcePath: skytefeltstatus
+        type: STRING
+        constraints:
+          codelist: Skytefeltstatus
+          required: true
+      avgrensesAvSkytefeltgrense:
+        sourcePath: "[objid=skytefeltobjid]Skytefelt_avgrensesAvSkytefeltgrense/[skytefeltgrenseobjid=objid]skytefeltgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Skytefeltgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Skytefeltgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/skytefeltgrense/items/{{value}}"
+  skytefeltgrense:
+    sourcePath: /skytefeltgrense
+    type: OBJECT
+    objectType: Skytefeltgrense
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  snøisbre:
+    sourcePath: /snøisbre
+    type: OBJECT
+    objectType: SnøIsbre
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=snøisbreobjid]SnøIsbre_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=snøisbreobjid]SnøIsbre_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=snøisbreobjid]SnøIsbre_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=snøisbreobjid]SnøIsbre_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=snøisbreobjid]SnøIsbre_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=snøisbreobjid]SnøIsbre_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=snøisbreobjid]SnøIsbre_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+  spesielldetalj:
+    sourcePath: /spesielldetalj
+    type: OBJECT
+    objectType: SpesiellDetalj
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        geometryType: LINE_STRING
+  sportidrettplass:
+    sourcePath: /sportidrettplass
+    type: OBJECT
+    objectType: SportIdrettPlass
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=sportidrettplassobjid]SportIdrettPlass_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=sportidrettplassobjid]SportIdrettPlass_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=sportidrettplassobjid]SportIdrettPlass_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=sportidrettplassobjid]SportIdrettPlass_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=sportidrettplassobjid]SportIdrettPlass_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=sportidrettplassobjid]SportIdrettPlass_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=sportidrettplassobjid]SportIdrettPlass_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+  stasjon:
+    sourcePath: /stasjon
+    type: OBJECT
+    objectType: Stasjon
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      navn:
+        sourcePath: navn
+        type: STRING
+        constraints:
+          required: true
+      retning_retningsverdi:
+        sourcePath: retning_retningsverdi
+        type: FLOAT
+        constraints:
+          required: true
+      retning_retningsenhet:
+        sourcePath: retning_retningsenhet
+        type: STRING
+        constraints:
+          codelist: Retningsenhet
+          required: true
+      retning_retningsreferanse:
+        sourcePath: retning_retningsreferanse
+        type: STRING
+        constraints:
+          codelist: Retningsreferanse
+          required: true
+  stedsnavntekst:
+    sourcePath: /stedsnavntekst
+    type: OBJECT
+    objectType: StedsnavnTekst
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      navneobjekthovedgruppe:
+        sourcePath: navneobjekthovedgruppe
+        type: STRING
+        constraints:
+          codelist: Navneobjekthovedgruppe
+          required: true
+      navneobjektgruppe:
+        sourcePath: navneobjektgruppe
+        type: STRING
+        constraints:
+          codelist: Navneobjektgruppe
+          required: true
+      navneobjekttype:
+        sourcePath: navneobjekttype
+        type: STRING
+        constraints:
+          codelist: Navneobjekttype
+          required: true
+      språk:
+        sourcePath: språk
+        type: STRING
+        constraints:
+          codelist: Spr_kKode
+      stedsnavnnummer:
+        sourcePath: stedsnavnnummer
+        type: INTEGER
+      språkprioritering:
+        sourcePath: språkprioritering
+        type: STRING
+        constraints:
+          codelist: Spr_kprioriteringKode
+      stedsnummer:
+        sourcePath: stedsnummer
+        type: INTEGER
+      skrivemåtenummer:
+        sourcePath: skrivemåtenummer
+        type: INTEGER
+  steinbrudd:
+    sourcePath: /steinbrudd
+    type: OBJECT
+    objectType: Steinbrudd
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=steinbruddobjid]Steinbrudd_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=steinbruddobjid]Steinbrudd_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=steinbruddobjid]Steinbrudd_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=steinbruddobjid]Steinbrudd_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=steinbruddobjid]Steinbrudd_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=steinbruddobjid]Steinbrudd_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=steinbruddobjid]Steinbrudd_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+  steintipp:
+    sourcePath: /steintipp
+    type: OBJECT
+    objectType: Steintipp
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=steintippobjid]Steintipp_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=steintippobjid]Steintipp_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=steintippobjid]Steintipp_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=steintippobjid]Steintipp_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=steintippobjid]Steintipp_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=steintippobjid]Steintipp_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=steintippobjid]Steintipp_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+  takkant:
+    sourcePath: /takkant
+    type: OBJECT
+    objectType: Takkant
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  tank:
+    sourcePath: /tank
+    type: OBJECT
+    objectType: Tank
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        geometryType: POLYGON
+      avgrensesAvTankkant:
+        sourcePath: "[objid=tankobjid]Tank_avgrensesAvTankkant/[tankkantobjid=objid]tankkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Tankkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Tankkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/tankkant/items/{{value}}"
+  tankkant:
+    sourcePath: /tankkant
+    type: OBJECT
+    objectType: Tankkant
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  taubane:
+    sourcePath: /taubane
+    type: OBJECT
+    objectType: Taubane
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  teiggrensepunkt:
+    sourcePath: /teiggrensepunkt
+    type: OBJECT
+    objectType: Teiggrensepunkt
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      grensepunkttype:
+        sourcePath: grensepunkttype
+        type: STRING
+        constraints:
+          codelist: Grensepunkttype
+          required: true
+      grensepunktnummer:
+        sourcePath: grensepunktnummer
+        type: STRING
+  terrengpunkt:
+    sourcePath: /terrengpunkt
+    type: OBJECT
+    objectType: Terrengpunkt
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      høyde:
+        sourcePath: høyde
+        type: INTEGER
+        constraints:
+          required: true
+  territorialgrense:
+    sourcePath: /territorialgrense
+    type: OBJECT
+    objectType: Territorialgrense
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      grense:
+        sourcePath: grense
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+  tettbebyggelse:
+    sourcePath: /tettbebyggelse
+    type: OBJECT
+    objectType: Tettbebyggelse
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=tettbebyggelseobjid]Tettbebyggelse_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=tettbebyggelseobjid]Tettbebyggelse_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=tettbebyggelseobjid]Tettbebyggelse_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=tettbebyggelseobjid]Tettbebyggelse_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=tettbebyggelseobjid]Tettbebyggelse_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=tettbebyggelseobjid]Tettbebyggelse_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=tettbebyggelseobjid]Tettbebyggelse_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+  tregruppe:
+    sourcePath: /tregruppe
+    type: OBJECT
+    objectType: Tregruppe
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+  trigonometriskpunkt:
+    sourcePath: /trigonometriskpunkt
+    type: OBJECT
+    objectType: TrigonometriskPunkt
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      høyde:
+        sourcePath: høyde
+        type: INTEGER
+        constraints:
+          required: true
+  tårn:
+    sourcePath: /tårn
+    type: OBJECT
+    objectType: Tårn
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+  veglenke:
+    sourcePath: /veglenke
+    type: OBJECT
+    objectType: Veglenke
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      senterlinje:
+        sourcePath: senterlinje
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: LINE_STRING
+        constraints:
+          required: true
+      typeVeg:
+        sourcePath: typeveg
+        type: STRING
+        constraints:
+          codelist: TypeVeg
+          required: true
+      vegsystem_vegkategori:
+        sourcePath: vegsystem_vegkategori
+        type: STRING
+        constraints:
+          codelist: Vegkategori
+      vegsystem_vegfase:
+        sourcePath: vegsystem_vegfase
+        type: STRING
+        constraints:
+          codelist: Vegfase
+      vegsystem_vegnummer:
+        sourcePath: vegsystem_vegnummer
+        type: INTEGER
+      motorvegtype:
+        sourcePath: motorvegtype
+        type: STRING
+        constraints:
+          codelist: Motorvegtype
+      rutemerking:
+        sourcePath: rutemerking
+        type: STRING
+        constraints:
+          codelist: RuteMerking
+      vedlikeholdsansvarlig:
+        sourcePath: vedlikeholdsansvarlig
+        type: STRING
+        constraints:
+          codelist: Vedlikeholdsansvarlig
+  vegsperring:
+    sourcePath: /vegsperring
+    type: OBJECT
+    objectType: Vegsperring
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+      vegsperringtype:
+        sourcePath: vegsperringtype
+        type: STRING
+        constraints:
+          codelist: Vegsperringtype
+      retning_retningsverdi:
+        sourcePath: retning_retningsverdi
+        type: FLOAT
+        constraints:
+          required: true
+      retning_retningsenhet:
+        sourcePath: retning_retningsenhet
+        type: STRING
+        constraints:
+          codelist: Retningsenhet
+          required: true
+      retning_retningsreferanse:
+        sourcePath: retning_retningsreferanse
+        type: STRING
+        constraints:
+          codelist: Retningsreferanse
+          required: true
+  vindkraftverk:
+    sourcePath: /vindkraftverk
+    type: OBJECT
+    objectType: Vindkraftverk
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      posisjon:
+        sourcePath: posisjon
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POINT
+        constraints:
+          required: true
+  åpentområde:
+    sourcePath: /åpentområde
+    type: OBJECT
+    objectType: ÅpentOmråde
+    properties:
+      oid:
+        sourcePath: objid
+        type: INTEGER
+        role: ID
+      område:
+        sourcePath: område
+        type: GEOMETRY
+        role: PRIMARY_GEOMETRY
+        geometryType: POLYGON
+        constraints:
+          required: true
+      avgrensesAvFiktivdelelinje:
+        sourcePath: "[objid=åpentområdeobjid]ÅpentOmråde_avgrensesAvFiktivdelelinje/[fiktivdelelinjeobjid=objid]fiktivdelelinje"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: FiktivDelelinje-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/fiktivdelelinje/items/{{value}}"
+      avgrensesAvDataavgrensning:
+        sourcePath: "[objid=åpentområdeobjid]ÅpentOmråde_avgrensesAvDataavgrensning/[dataavgrensningobjid=objid]dataavgrensning"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Dataavgrensning-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/dataavgrensning/items/{{value}}"
+      avgrensesAvElveKant:
+        sourcePath: "[objid=åpentområdeobjid]ÅpentOmråde_avgrensesAvElveKant/[elvekantobjid=objid]elvekant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: ElveKant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/elvekant/items/{{value}}"
+      avgrensesAvArealbrukgrense:
+        sourcePath: "[objid=åpentområdeobjid]ÅpentOmråde_avgrensesAvArealbrukgrense/[arealbrukgrenseobjid=objid]arealbrukgrense"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Arealbrukgrense-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/arealbrukgrense/items/{{value}}"
+      avgrensesAvInnsjøkant:
+        sourcePath: "[objid=åpentområdeobjid]ÅpentOmråde_avgrensesAvInnsjøkant/[innsjøkantobjid=objid]innsjøkant"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Innsjøkant-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkant/items/{{value}}"
+      avgrensesAvInnsjøkantRegulert:
+        sourcePath: "[objid=åpentområdeobjid]ÅpentOmråde_avgrensesAvInnsjøkantRegulert/[innsjøkantregulertobjid=objid]innsjøkantregulert"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: InnsjøkantRegulert-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/innsjøkantregulert/items/{{value}}"
+      avgrensesAvKystkontur:
+        sourcePath: "[objid=åpentområdeobjid]ÅpentOmråde_avgrensesAvKystkontur/[kystkonturobjid=objid]kystkontur"
+        type: OBJECT_ARRAY
+        objectType: Link
+        constraints:
+          minOccurrence: 0
+        properties:
+          title:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-title
+          href:
+            sourcePath: objid
+            type: STRING
+            label: Kystkontur-ID
+            transformations:
+            - stringFormat: "{{serviceUrl}}/collections/kystkontur/items/{{value}}"
