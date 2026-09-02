@@ -135,6 +135,8 @@ Kobling mot valgresultater for å vise stemmefordeling i kommunene, fylkene elle
 | Atom Feed | [Lenke](http://nedlasting.geonorge.no/geonorge/ATOM-feeds/Stemmekretser_AtomFeedGeoJSON.xml) | W3C:AtomFeed | GeoJSON | fylkesvis, kommunevis, landsfiler |
 | Atom Feed | [Lenke](http://nedlasting.geonorge.no/geonorge/ATOM-feeds/Stemmekretser_AtomFeedPostGIS.xml) | W3C:AtomFeed | PostGIS | fylkesvis, kommunevis, landsfiler |
 | Atom Feed | [Lenke](http://nedlasting.geonorge.no/geonorge/ATOM-feeds/Stemmekretser_AtomFeedSOSI.xml) | W3C:AtomFeed | SOSI | fylkesvis, kommunevis, landsfiler |
+| GeoPackage: ny-datakilde | [Lenke](https://raw.githubusercontent.com/josteinAmlien/produktspesifikasjon_test/main/produktspesifikasjon_stemmekretser/stemmekretser-2025/ny-datakilde/ny-datakilde.gpkg) | Nedlasting | GPKG |  |
+| GML/XSD-skjema: ny-datakilde | [Lenke](https://raw.githubusercontent.com/josteinAmlien/produktspesifikasjon_test/main/produktspesifikasjon_stemmekretser/stemmekretser-2025/ny-datakilde/schema/xsd/INPUT/ny-datakilde.xsd) | Nedlasting | XSD |  |
 
 ## Metadata
 
