@@ -1,0 +1,92 @@
+@startuml
+' For wide diagrams, render with: plantuml -DPLANTUML_LIMIT_SIZE=16384 ...
+' The 'scale max' directive below caps the rendered output to prevent the
+' default PlantUML 4096px size limit from cropping the diagram.
+scale max 4000*4000
+
+title Stemmekretser - stortings- og sametingsvalget 2025 - Ny datakilde - Objekttyper
+
+skinparam backgroundColor #F5F5F5
+skinparam shadowing false
+skinparam RoundCorner 6
+skinparam ArrowColor #6C8198
+skinparam wrapWidth 200
+skinparam class {
+  BackgroundColor #FBF2E8
+  BorderColor #9C8578
+  FontColor #2D201A
+  HeaderBackgroundColor #EFE1D6
+  HeaderFontColor #2D201A
+  AttributeIconSize 0
+}
+skinparam note {
+  BackgroundColor #FFFFFF
+  BorderColor #6C8198
+  FontColor #2D201A
+}
+skinparam stereotypeCBackgroundColor #EAD9CE
+skinparam stereotypeCBorderColor #9C8578
+skinparam stereotypeCFontColor #2D201A
+
+package "Objekttyper" {
+
+  class Stemmekrets <<featureType>> {
+    + område [1] : GM_MultiSurface
+    + stremmekretsid [1] : StemmekretsId
+    + kommunenummer [1] : Kommunenummer
+    + kommunenavn [1] : CharacterString
+    + fylkesnummer [1] : Fylkesnummer
+  }
+
+  abstract class SOSI_Objekt_flate <<featureType>> {
+    + datafangstdato [0..1] : Date
+    + datauttaksdato [0..1] : Date
+    + opphav [0..1] : CharacterString
+  }
+
+  class Grense <<featureType>> {
+    + grense [1] : GM_Curve
+    + avgrensningstype [1] : TypeAvgrensning
+  }
+
+  abstract class SOSI_Fellesegenskaper <<featureType>> {
+    + identifikasjon [1] : Identifikasjon
+    + oppdateringsdato [1] : Date
+    + gyldigFra [0..1] : Date
+    + gyldigTil [0..1] : Date
+  }
+
+  abstract class SOSI_Objekt_grense <<featureType>> {
+    + datafangstdato [0..1] : Date
+    + kvalitet [0..1] : Posisjonskvalitet
+    + datauttaksdato [0..1] : Date
+    + opphav [0..1] : CharacterString
+  }
+
+  class StemmekretsId <<dataType>> {
+    + stemmekretsnummer [1] : CharacterString
+    + stemmekretsnavn [1] : CharacterString
+    + tellekretsnummer [0..1] : CharacterString
+    + tellekretsnavn [0..1] : CharacterString
+    + valgdistriktsnummer [0..1] : CharacterString
+  }
+
+  class Identifikasjon <<dataType>> {
+    + lokalId [1] : CharacterString
+    + navnerom [1] : CharacterString
+    + versjonId [0..1] : CharacterString
+  }
+
+  class Posisjonskvalitet <<dataType>> {
+    + målemetode [1] : Målemetode
+    + nøyaktighet [0..1] : Integer
+  }
+}
+
+  SOSI_Objekt_flate <|-- Stemmekrets
+  Stemmekrets --> Grense : avgrensesAvGrense [0..*]
+  SOSI_Fellesegenskaper <|-- SOSI_Objekt_flate
+  SOSI_Objekt_grense <|-- Grense
+  SOSI_Fellesegenskaper <|-- SOSI_Objekt_grense
+
+@enduml
