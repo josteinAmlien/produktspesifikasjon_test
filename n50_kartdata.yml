@@ -5,6 +5,6 @@ updated: '2026-09-02'
 outputs: xsd,jsonschema,odcs,ldproxy,geopackage
 scopes:
 - name: UML N50 Kartdata
-  url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/N50%20Kartdata.xml
+  url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/N50Kartdata20230401.xml
   generator: xmi
   description: N50 test
