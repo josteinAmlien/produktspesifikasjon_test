@@ -1,7 +1,8 @@
 metadataId: 67d89aa2-ee97-43b2-bcf0-b044ac3b5844
 output_directory: produktspesifikasjon_stemmekretser
-product_slug: stemmekretser_2023
+product_slug: stemmekretser_2025
 updated: '2026-09-02'
+outputs: xsd,geopackage
 scopes:
 - name: Ny datakilde
   url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/Stemmekretser-20230701.xml
