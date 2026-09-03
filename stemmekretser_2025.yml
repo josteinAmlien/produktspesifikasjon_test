@@ -7,4 +7,4 @@ scopes:
 - name: Ny datakilde
   url: https://sosi.geonorge.no/svn/SOSI/SOSI%20Del%203/Statens%20kartverk/Stemmekretser-20230701.xml
   generator: xmi
-  description: ''
+  description: 'stemmekretser'
