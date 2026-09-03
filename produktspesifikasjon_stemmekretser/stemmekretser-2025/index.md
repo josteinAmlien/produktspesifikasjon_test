@@ -144,7 +144,7 @@ Kobling mot valgresultater for å vise stemmefordeling i kommunene, fylkene elle
 
 **Metadatastandardversjon**: 2003
 
-**Metadatadato**: 2026-09-02
+**Metadatadato**: 2026-09-03
 
 **språk**: nor
 
